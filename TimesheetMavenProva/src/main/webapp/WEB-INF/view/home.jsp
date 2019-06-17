@@ -25,20 +25,22 @@
 		Role(s): <security:authentication property="principal.authorities" />
 	</p>
 	
-	<hr>
 	
+	<security:authorize access="hasRole('MANAGER')">
 	<!-- Add a link to point to /leaders -- this is for the managers -->
 	<p>
 	<a href="${pageContext.request.contextPath}/leaders">Manager</a>
 	Only for managers
 	</p>
+	</security:authorize>
 	
+	<security:authorize access="hasRole('ADMIN')">
 	<!-- add a link to point to /systems -- this is for admins -->
 	<p>
 	<a href="${pageContext.request.contextPath}/systems">Admin</a>
 	Only for admins
 	</p>
-	
+	</security:authorize>
 	<hr>
 	
 	<!-- add a logout button -->
